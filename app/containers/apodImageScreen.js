@@ -10,18 +10,27 @@ import {
 } from '@shoutem/ui';
 
 import ImageDetails from '../components/imageDetails';
+import getApodJson from '../utils/nasaApi';
 
 class ApodImage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      apodJson: {},
       imageFlex: 0.8,
       textFlex: 0.2
     };
 
     this.render = this.render.bind(this);
     this._animateLayout = this._animateLayout.bind(this);
+  }
+
+  async componentWillMount() {
+    let apodJson = await getApodJson();
+    this.setState({
+      apodJson: apodJson
+    });
   }
 
   _animateLayout(){
@@ -42,13 +51,13 @@ class ApodImage extends Component {
         style={styles.container} 
         onPress={this._animateLayout}>
         <Image 
-          source={{uri: 'https://apod.nasa.gov/apod/image/1705/STSCI-HST-abell370_1797x2000.jpg'}}
+          source={{uri: this.state.apodJson.url || ''}}
           style={{flex: this.state.imageFlex}}
         />
         <ImageDetails 
             style={{flex: this.state.textFlex}}
-            title="Awesome Title"
-            description="Awesome Description"
+            title={this.state.apodJson.title || ''}
+            description={this.state.apodJson.explanation || ''}
         />
       </TouchableOpacity>
     );
