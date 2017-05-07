@@ -14,7 +14,7 @@ class ImageDetails extends Component {
         <Title styleName="md-gutter sm-gutter-bottom">
           {this.props.jsonApod.title}
         </Title>
-        <Text styleName="md-gutter sm-gutter-top">
+        <Text styleName="md-gutter">
           CopyRight : {this.props.jsonApod.copyright}
         </Text>
         <Text style={styles.description} styleName="md-gutter-left">

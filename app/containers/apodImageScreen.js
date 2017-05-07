@@ -7,6 +7,9 @@ import {
 import {
   Image,
   TouchableOpacity,
+  Spinner,
+  View,
+  Text,
 } from '@shoutem/ui';
 
 import ImageDetails from '../components/imageDetails';
@@ -18,8 +21,9 @@ class ApodImage extends Component {
 
     this.state = {
       apodJson: {},
+      loaded: false,
       imageFlex: 0.8,
-      textFlex: 0.2
+      textFlex: 0.2,
     };
 
     this.render = this.render.bind(this);
@@ -29,7 +33,8 @@ class ApodImage extends Component {
   async componentWillMount() {
     let apodJson = await getApodJson();
     this.setState({
-      apodJson: apodJson
+      apodJson: apodJson,
+      loaded: true,
     });
   }
 
@@ -46,6 +51,13 @@ class ApodImage extends Component {
   }
 
   render() {
+    if(!this.state.loaded)
+      return(
+        <View style={styles.spinner}>
+          <Spinner style={{size: 'large', color: '#2c3e50'}}/>
+          <Text styleName="md-gutter"> Please wait while we Load the Galaxy </Text>
+        </View>
+      );
     return(
       <TouchableOpacity 
         style={styles.container} 
@@ -67,6 +79,11 @@ const styles = {
   container:{
     flex: 1,
   },
+  spinner: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 };
 
 export default ApodImage;
