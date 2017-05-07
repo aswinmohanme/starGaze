@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 
 import {
@@ -26,6 +25,7 @@ class ApodImage extends Component {
   }
 
   _animateLayout(){
+    // SetUp for Android Permissions
     UIManager.setLayoutAnimationEnabledExperimental && 
     UIManager.setLayoutAnimationEnabledExperimental(true);
 
@@ -35,11 +35,11 @@ class ApodImage extends Component {
       textFlex: this.state.imageFlex,
     });
   }
+
   render() {
     return(
       <TouchableOpacity 
         style={styles.container} 
-        styleName="rounded-corners"
         onPress={this._animateLayout}>
         <Image 
           source={{uri: 'https://apod.nasa.gov/apod/image/1705/STSCI-HST-abell370_1797x2000.jpg'}}
