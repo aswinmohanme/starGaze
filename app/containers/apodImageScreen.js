@@ -56,8 +56,7 @@ class ApodImage extends Component {
         />
         <ImageDetails 
             style={{flex: this.state.textFlex}}
-            title={this.state.apodJson.title || ''}
-            description={this.state.apodJson.explanation || ''}
+            jsonApod = {this.state.apodJson || {}}
         />
       </TouchableOpacity>
     );
