@@ -59,12 +59,6 @@ const styles = {
   container:{
     flex: 1,
   },
-  image: {
-    flex:0.8,
-  },
-  textContainer:{
-    flex: 0.2,
-  },
 };
 
 export default ApodImage;

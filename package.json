@@ -19,6 +19,9 @@
 		"react-test-renderer": "16.0.0-alpha.6"
 	},
 	"jest": {
-		"preset": "react-native"
+		"preset": "react-native",
+		"transformIgnorePatterns": [
+      "node_modules/(?!react-native|@shoutem/theme|@shoutem/animation|@shoutem/ui|react-navigation)"
+		]
 	}
 }
