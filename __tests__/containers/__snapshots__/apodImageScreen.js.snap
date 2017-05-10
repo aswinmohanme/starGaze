@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  animationOptions={Object {}}
+  onLayout={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+  virtual={undefined}
+>
+  <ActivityIndicator
+    animating={true}
+    color="#2c3e50"
+    hidesWhenStopped={true}
+    size="large"
+    style={Object {}}
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    animationOptions={Object {}}
+    ellipsizeMode="tail"
+    onLayout={[Function]}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "color": "#666666",
+        "fontFamily": "Rubik-Regular",
+        "fontSize": 15,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "marginBottom": 15,
+        "marginLeft": 15,
+        "marginRight": 15,
+        "marginTop": 15,
+      }
+    }
+    styleName="md-gutter"
+    virtual={undefined}
+  >
+     Please wait while we Load the Galaxy 
+  </Text>
+</View>
+`;
